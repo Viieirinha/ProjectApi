@@ -15,9 +15,9 @@ router.get('/home', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
     
-    user.login(req.body.username, req.body.password, function(result) {
-        if(result) {
-            res.send('Logged in as: '+ result.username);
+    user.login(req.body.username, req.body.password, function(user) {
+        if(user) {
+            res.send('Logged in as: '+ user.username);
         } else {
             res.send('Username/Password incorrect!');
         }

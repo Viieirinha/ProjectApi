@@ -12,6 +12,11 @@ app.set('view engine', 'pug');
 
 app.use('/', pageRouter);
 
+app.get('/ip',function(req, res) {
+    const ipAddress = req.socket.remoteAddress;
+    res.send(ipAddress);
+});
+
 
 app.use((req, res, next) => {
     var err = new Error('Página não Encontrada.');
